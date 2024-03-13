@@ -14,11 +14,18 @@ p, h3, h4, h5, h6{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #232931;
 }
+section, footer{
+    margin: 80px 0;
+}
+
+body{
+    overflow-x: hidden;
+}
 
 
 /* hero top area */
 
-.active{
+.active {
     font-weight: 600;
    
 }
@@ -28,7 +35,7 @@ p, h3, h4, h5, h6{
 }
 
 .custom-logo{
-    display: none;
+    width: 50px
 }
 .center{
     text-align: center;
@@ -64,18 +71,31 @@ p, h3, h4, h5, h6{
 #boxes::before {
     content: "";
     display: block;
-    top: -125px;
-    left: -175px;
+    top: 67px;
+    left: -172px;
     position: absolute;
     background-image: url(/img/asset1.svg);
     z-index: -1;
+    opacity: 26%;
+    width: 600px;
+    height: 552px;
+    background-size: cover;
+    transform: rotate(354deg);
+}
+
+#table::before {
+    content: "";
+    display: block;
+    top: 135%;
+    right: -81px;
+    position: absolute;
+    background-image: url(/img/asset2.svg);
+    z-index: -1;
     opacity: 30%;
-    color:#753c44;
-    width: 850px;
+    width: 500px;
     height: 500px;
     background-size: cover;
-    transform: rotate(45deg);
-    background-position: 50%;
+    transform: rotate(354deg);
 }
 
 .icons > svg:hover{
@@ -89,8 +109,8 @@ p, h3, h4, h5, h6{
 }
 .bi-camera-fill{
     padding: 20px;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
 }
 
 .col-three-across {
@@ -99,7 +119,20 @@ p, h3, h4, h5, h6{
 }
 
 
+/* tables */
+.odin-table > tr{
+    background-color: #753c44 !important;
+    color: #fff;
+}
+
+.container{
+    padding: 20px;
+}
+
 @media (max-width: 600px) {
+    .custom-logo{
+        display: block !important;
+    }
   
     .header-h1{
       font-size: 2.7rem;
@@ -114,9 +147,15 @@ p, h3, h4, h5, h6{
 
     }
     #boxes::before {
-            width: 450px;
-            height: 450px;
-            top: 140px;
-            left: 0px;
+        width: 273px;
+        height: 250px;
+        top: 76px;
+        left: -96px;
+        }
+    #table::before {
+        width: 273px;
+        height: 250px;
+        top: 76px;
+        left: -96px;
         }
   }
