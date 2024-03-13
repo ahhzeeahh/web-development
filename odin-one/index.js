@@ -9,3 +9,5 @@ function colorChanger() {
     console.log(randomNumber)
     
 }
+
+let currentColor = #fff;
