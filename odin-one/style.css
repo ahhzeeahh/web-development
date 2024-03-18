@@ -6,6 +6,8 @@
 
 body{
 background-color: #efe8e8;
+overflow-x: clip;
+
 }
 h1{
 
@@ -21,12 +23,9 @@ p, h3, h4, h5, h6{
     color: #232931;
 }
 
-
-body{
-    overflow: hidden;
+section{
+    padding: 3rem 0;
 }
-
-
 /* hero top area */
 
 .active {
@@ -88,18 +87,18 @@ body{
 }
 
 #table::before {
-    content: "";
-    display: block;
-    top: 135%;
-    right: -81px;
-    position: absolute;
-    background-image: url(/img/asset2.svg);
-    z-index: -1;
-    opacity: 30%;
-    width: 500px;
-    height: 500px;
-    background-size: cover;
-    transform: rotate(354deg);
+        content: "";
+        display: block;
+        top: -249px;
+        right: -494px;
+        position: fixed;
+        background-image: url(/img/asset2.svg);
+        z-index: -1;
+        opacity: 30%;
+        width: 500px;
+        height: 500px;
+        background-size: cover;
+        transform: rotate(354deg);
 }
 
 i {
@@ -121,19 +120,17 @@ i {
     padding: 20px;
 }
 
-.page-section {
-    padding: 8rem 0;
-}
+
 /* tables */
 @keyframes fadeUp{
-from {
-    opacity: 0;
-    transform: translate3d(0,40px,0)
-}
+    from {
+        opacity: 0;
+        transform: translate3d(0,40px,0)
+    }
 
-to {
-    transform: translate3d(0,0,0);
-    opacity: 1
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
 }
 }
 .fade-in{
@@ -143,13 +140,13 @@ to {
 }
 
 
-.odin-table > tr{
-    background-color: var(--red) !important;
-    color: #fff;
+.odin-table{
+    overflow: hidden;
 }
 
 
 @media (max-width: 600px) {
+    
     .custom-logo{
         display: block !important;
     }
@@ -173,27 +170,23 @@ to {
         left: -96px;
         }
     #table::before {
-        position: relative;
-        width: 273px;
-        height: 277px;
-        left: 226px;
-        bottom: 143px;
+        display: none;
 
         }
 
     footer::before{
-        content: "";
         display: block;
         bottom: 0;
-        left: -20px;
-        position: relative;
-        background-image: url(/img/asset1.svg);
+        position: fixed;
+        background-image: url(/img/asset2.svg);
         z-index: -1;
-        opacity: 90%;
-        width: 241px;
+        opacity: 50%;
+        right: 20px;
+        width: 224px;
         height: 222px;
         background-size: cover;
         transform: rotate(298deg);
     
     }
+ 
   }
