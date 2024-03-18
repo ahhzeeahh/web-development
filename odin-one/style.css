@@ -20,12 +20,10 @@ p, h3, h4, h5, h6{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #232931;
 }
-section, footer{
-    margin: 80px 0;
-}
+
 
 body{
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 
@@ -104,36 +102,52 @@ body{
     transform: rotate(354deg);
 }
 
-.icons > svg:hover{
-    color: #232931;
+i {
+    font-size: 3rem;
+    color: var(--red);
 }
-.icons > svg {
-    width: 3rem;
-    height: 3rem;
-    margin: 20px 0;
-    color:var(--red);
-}
-.bi-camera-fill{
-    padding: 20px;
-    width: 80%;
-    height: 80%;
+.bi-brilliance {
+    font-size: 17rem;
+    padding: 0 60px;
+
 }
 
-.col-three-across {
+.col-three-across{
     display: flex;
     justify-content: center;
-}
-
-
-/* tables */
-.odin-table > tr{
-    background-color: var(--red) !important;
-    color: #fff;
 }
 
 .container{
     padding: 20px;
 }
+
+.page-section {
+    padding: 8rem 0;
+}
+/* tables */
+@keyframes fadeUp{
+from {
+    opacity: 0;
+    transform: translate3d(0,40px,0)
+}
+
+to {
+    transform: translate3d(0,0,0);
+    opacity: 1
+}
+}
+.fade-in{
+    animation-name: fadeUp;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+}
+
+
+.odin-table > tr{
+    background-color: var(--red) !important;
+    color: #fff;
+}
+
 
 @media (max-width: 600px) {
     .custom-logo{
@@ -159,9 +173,27 @@ body{
         left: -96px;
         }
     #table::before {
+        position: relative;
         width: 273px;
-        height: 250px;
-        top: 76px;
-        left: -96px;
+        height: 277px;
+        left: 226px;
+        bottom: 143px;
+
         }
+
+    footer::before{
+        content: "";
+        display: block;
+        bottom: 0;
+        left: -20px;
+        position: relative;
+        background-image: url(/img/asset1.svg);
+        z-index: -1;
+        opacity: 90%;
+        width: 241px;
+        height: 222px;
+        background-size: cover;
+        transform: rotate(298deg);
+    
+    }
   }
