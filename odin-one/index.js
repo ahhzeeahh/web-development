@@ -1,17 +1,16 @@
 
-const btn = document.querySelector(".btn-dark");
 
+const button = document.querySelector('#change');
+const icon = document.querySelector('.bi-brilliance');
 
-btn.addEventListener("click", function (){
+button.addEventListener('click', function() {
 
-    const svg = document.querySelector(".bi-brilliance");
+    let number = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
 
-    let rgb = "rgb(" + Math.floor( Math.random()*255) + "," + Math.floor( Math.random()*255) + "," + Math.floor( Math.random()*255) + ")"
-       
-        svg.style.color = rgb
-       
-        console.log(rgb)
-        
+    icon.style.color = number;
+     
+
+    console.log(number)
+
 
 })
-
