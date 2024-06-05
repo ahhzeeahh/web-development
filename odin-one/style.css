@@ -148,6 +148,7 @@ i {
     color: var(--red);
 }
 .bi-brilliance {
+    transition-duration: 1s;
     font-size: 17rem;
     padding: 0 60px;
 
