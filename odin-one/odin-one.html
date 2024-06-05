@@ -84,7 +84,21 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                             <div class="modal-body">
-                                <p>kjsfkljslkvsvlsv</p>
+                                <code>
+                                  
+                                        const button = document.querySelector("#change");<br>
+                                        const icon = document.querySelector(".bi-brilliance");<br>
+
+
+                                        button.addEventListener("click", function() {<br>
+
+                                          let rgb = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")"<br>
+                                          console.log(rgb)<br>
+
+                                              icon.style.color = rgb<br>
+
+                                          });
+                                </code>
                             </div>
                       </div>
                     </div>
