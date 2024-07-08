@@ -13,13 +13,60 @@
         <title>Odin Part 2</title>
     </head>
 <body>
+    <script>
+        console.log('js is outputting')
 
+    </script>
+    <nav>
+    <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler collapsed" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" type="button">
+        
+        <span class="toggler-icon top-bar"></span>
+        <span class="toggler-icon middle-bar"></span>
+        <span class="toggler-icon bottom-bar"></span>
+
+    </button>
+
+    <div class="offcanvas offcanvas-end  txgio-mobile txgio-main-nav " style="" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        
+            <div class="offcanvas-header">
+                <button type="button"  data-bs-dismiss="offcanvas" aria-label="Close Toggle navigation" class="text-reset navbar-toggler collapsed">
+                    <span class="toggler-icon top-bar"></span>
+                    <span class="toggler-icon middle-bar"></span>
+                    <span class="toggler-icon bottom-bar"></span>
+                </button>
+            </div>
+            <div class="offcanvas-body">
+                <p>somthing here</p>
+
+            </div>
+            </div>
+        </div>
+    </nav>nav>
     <h1>Latest Data from TxGIO</h1>
   
     <div id="cardbox" class="-main-post-box">
-        
-    </div>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
 
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            ...
+        </div>
+        </div>
+    </div>
+-------------------------
+
+
+
+
+  
+
+
+
+    
     <div class="more-post" id="random" >
         <button id=load>Click for more</button>
     </div>
