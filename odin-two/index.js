@@ -5,6 +5,9 @@ var input = document.querySelectorAll('input')
 var amount = 0;
 
 
+
+
+
 submit.addEventListener('click', function() { 
 
 
@@ -37,3 +40,8 @@ submit.addEventListener('click', function() {
         input[1].value = "";
         input[2].value = "";
 });
+
+function StoredData(inputOne, inputTwo, inputThree) {
+   this.v
+}
+

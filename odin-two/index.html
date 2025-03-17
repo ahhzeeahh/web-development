@@ -12,20 +12,14 @@
         <link rel="stylesheet" href="odin-two.css">
         <title>Odin Part 2</title>
         <style>
-            .container{
-              max-width: 725px;
-              text-align: center;
-              margin: auto;
-              padding:40px;
-            }
-            section{ 
-            border:1px solid #b3adad;
-              display: flex;
-              justify-content: center;
-            }
-            p{
-              font-family: Georgia, serif;
-            }
+        
+        .data-section {
+            background: #fff;
+            border: 1px solid #b3adad;
+            display: flex ;
+            justify-content: center;
+             }
+       
             li{
               padding-bottom: 5px;
               list-style: none;
@@ -33,10 +27,10 @@
               text-align: left;
             }
             h1{
-              margin-top: 80px;
-              text-align: center;
+              margin: 80px 0 40px 0;
               font-family: 'Press Start 2P', cursive;
-              font-size: 5rem;
+              font-size: 4.5rem;
+              text-align: center;
               text-shadow: 5px 0 #232931;
               color: #753c44
             }
@@ -73,10 +67,6 @@
               color: #000;
             }
             
-            .middle-rows{
-            background-color: #fff;
-            color: #000;
-            }
             #submit {
               font-family: 'Press Start 2P', cursive;
               background-color: #000;
@@ -115,61 +105,69 @@
         </style>
     </head>
     <body data-new-gr-c-s-check-loaded="14.1226.0" data-gr-ext-installed="">
-        <h1>Expense Tracker</h1>
-        <div class="container" id="input-data">
-            <h2>Input the data from the expense:</h2>
-            <form>
-            <input id="input1" type="text" required="" name="title" placeholder="Title"> 
-                <input id="input2" required="" type="number" name="amount" placeholder="Amount"> 
-                <input id="input3" type="date" name="date" placeholder="Date (optional)"> 
-                <button id="submit" type="button" name="amount" placeholder="Amount" value="Submit">Submit</button>
-            </form>
+       <main class="container">
+            <h1>Expense Tracker 2</h1>
+           
+            <div class="row">
+                 <div class="col-lg-4 p-5 bg-light rounded shadow" id="input-data">
+                    <p class="lead mt-3">My expenses calculator helps total $ spent on stuff! With direction from the Odin project, I'm pratciing with .js objects and form validiation. This does not save your information for later, do not refersh screen.</p>
+                    <h2>Input the data from the expense:</h2>
+                    <form>
+                    <input id="input1" type="text" required="" name="title" placeholder="Title"> 
+                        <input id="input2" required="" type="number" name="amount" placeholder="Amount"> 
+                        <input id="input3" type="date" name="date" placeholder="Date (optional)"> 
+                        <button id="submit" type="button" placeholder="Amount" value="Submit">Submit</button>
+                    </form>
+                    
+                </div>
+
+                <div class="col">
+                    <section class="header mt-3">
+                        <div class="table">
+                            <h3>Title</h3>
+                        </div>
+                        <div class="table">
+                            <h3>Amount</h3>
+                        </div>
+                        <div class="table">
+                            <h3>Date<em> (optional)</em></h3>
+                        </div>
+                    </section>
+                    <section class="data-section">
+                        <div class="data">
+                            <ul id="title">
+        
+                            </ul>
+                        </div>
+                        <div class="data">
+                            <ul id="number">
+        
+                            </ul> 
+                            
+                        </div>
+                        <div class="data">
+                            <ul id="date">
+        
+                           </ul>
+                        </div>
+                    </section>
+                    <section class="header">
             
-        </div>
-        <main class="container">
-                <section class="header">
-                    <div class="table">
-                        <h3>Title</h3>
-                    </div>
-                    <div class="table">
-                        <h3>Amount</h3>
-                    </div>
-                    <div class="table">
-                        <h3>Date<em> (optional)</em></h3>
-                    </div>
-                </section>
-                <section>
-                    <div class="data">
-                        <ul id="title">
-    
-                        </ul>
-                    </div>
-                    <div class="data">
-                        <ul id="number">
-    
-                        </ul> 
-                        
-                    </div>
-                    <div class="data">
-                        <ul id="date">
-    
-                       </ul>
-                    </div>
-                </section>
-                <section class="header">
+                        <div class="table"> 
+                            <h3>Final Amount:</h3>
+                        </div>
+                        <div>  
+                            <h3 id="final"></h3>
+                        </div>
+                    </section>
+                </div>
                 
-                    <div class="table"> 
-                        <h3>Final Amount:</h3>
-                    </div>
-                    <div>  
-                        <h3 id="final"></h3>
-                    </div>
-                </section>
-            </main>
+
+       </main> 
     
     
         
-     <footer>
+     <footer class="mt-5">
             <p>Back to <a href="https://azizaobryant.com">azizaobryant.com</a></p>
      </footer>
     
