@@ -19,7 +19,11 @@
             display: flex ;
             justify-content: center;
              }
-       
+             form{
+              display: grid;
+              gap: .5rem;
+
+              }
             li{
               padding-bottom: 5px;
               list-style: none;
@@ -67,7 +71,7 @@
               color: #000;
             }
             
-            #submit {
+            button {
               font-family: 'Press Start 2P', cursive;
               background-color: #000;
               font-weight: 600;
@@ -78,7 +82,8 @@
               text-transform: uppercase;
               letter-spacing: 2px;
             }
-            #submit:hover{
+
+            button:hover{
             background-color: #444444;
             } 
             
@@ -87,20 +92,12 @@
               border: solid 1px #ccc;
             }
             
-            footer{
-              text-align: center;
-            
-            }
             @media (max-width: 600px) {
               
               h1{
                 font-size: 2rem;
               }
-            
-              form{
-                display: flex;
-                flex-direction: column;
-              }
+          
             }
         </style>
     </head>
@@ -111,11 +108,14 @@
             <div class="row">
                  <div class="col-lg-4 p-5 bg-light rounded shadow" id="input-data">
                     <p class="lead mt-3">My expenses calculator helps total $ spent on stuff! With direction from the Odin project, I'm pratciing with .js objects and form validiation. This does not save your information for later, do not refersh screen.</p>
-                    <h2>Input the data from the expense:</h2>
+                    <h4>Input the data from the expense:</h4>
                     <form>
+                      <label for="title">Enter expense title*</label>
                     <input id="input1" type="text" required="" name="title" placeholder="Title"> 
+                        <label for="amount">Enter expense amount*</label>
                         <input id="input2" required="" type="number" name="amount" placeholder="Amount"> 
-                        <input id="input3" type="date" name="date" placeholder="Date (optional)"> 
+                        <label for="date">Enter expense date (optional)</label>
+                        <input id="input3" type="date" name="date"> 
                         <button id="submit" type="button" placeholder="Amount" value="Submit">Submit</button>
                     </form>
                     
@@ -160,8 +160,11 @@
                             <h3 id="final"></h3>
                         </div>
                     </section>
+                      <p  class="text-center">
+                        <button class="mt-5" id="print">Save & Print</button>
+                      </p>
                 </div>
-                
+              
 
        </main> 
     
