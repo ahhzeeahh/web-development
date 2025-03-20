@@ -4,9 +4,7 @@ const final = document.querySelector("#final");
 var input = document.querySelectorAll('input')
 var amount = 0;
 const formData = [];
-let titleOf = input[0].value
-let amtOf = input[1].value
-let dateOf = input[2].value
+
 
 
 function getValues(titleOf, amtOf, dateOf) {
@@ -64,10 +62,6 @@ function test() {
             title: input[0].value, 
             money: input[1].value, 
             date: input[2].value,
-            test: function() {
-                console.dir(this)
-
-            }
 
         };
 
@@ -78,7 +72,22 @@ function test() {
         input[2].value = "";
 }
 
-submit.addEventListener('click', validateForm())
+
+function pushArr() {
+
+    const dataEntered = { 
+        title: input[0].value, 
+        money: input[1].value, 
+        date: input[2].value
+    };
+
+    formData.push(dataEntered)
+    console.log(formData)
+    
+    input.forEach(input => input.value = '');
+    
+}
+submit.addEventListener('click', pushArr)
 
 
 
