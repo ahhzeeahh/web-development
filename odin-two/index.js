@@ -2,9 +2,49 @@
 const submit = document.querySelector("#submit");
 const final = document.querySelector("#final");
 var input = document.querySelectorAll('input')
-var amount = 0;
+let dataNode = document.querySelectorAll(".data");
+
 const formData = [];
 
+
+function pushArr() {
+
+    for (var i = 0; i < input.length; i++) {
+
+        var list =  document.createElement('li');
+           list.textContent = input[i].value
+           dataNode[i].appendChild(list);        
+    }
+
+    const dataEntered = { 
+        title: input[0].value, 
+        money: input[1].value, 
+        date: input[2].value
+    };
+
+    formData.push(dataEntered)
+    input.forEach(input => {input.value = '' });
+    
+}
+
+function validateForm() {
+
+    const dateOf = document.querySelector("#date");
+    const amtOf = document.querySelector("#number");
+    const titleOf = document.querySelector("#title");
+    
+}
+
+
+submit.addEventListener('click', pushArr)
+
+
+
+
+
+
+
+/*
 
 
 function getValues(titleOf, amtOf, dateOf) {
@@ -29,7 +69,7 @@ function validateForm() {
      amtOf = "" 
      dateOf = ""
 }
-*/
+
 
 
 
@@ -73,29 +113,9 @@ function test() {
 }
 
 
-function pushArr() {
-
-    const dataEntered = { 
-        title: input[0].value, 
-        money: input[1].value, 
-        date: input[2].value
-    };
-
-    formData.push(dataEntered)
-    console.log(formData)
-    
-    input.forEach(input => input.value = '');
-    
-}
-submit.addEventListener('click', pushArr)
 
 
 
-
-
-
-
-/*
 submit.addEventListener('click', function() { 
 
    
