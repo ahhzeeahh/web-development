@@ -71,7 +71,7 @@
               color: #000;
             }
             
-            button {
+            .button {
               font-family: 'Press Start 2P', cursive;
               background-color: #000;
               font-weight: 600;
@@ -83,7 +83,7 @@
               letter-spacing: 2px;
             }
 
-            button:hover{
+            .button:hover{
             background-color: #444444;
             } 
             
@@ -111,12 +111,12 @@
                     <h4>Input the data from the expense:</h4>
                     <form>
                       <label for="title">Enter expense title*</label>
-                    <input id="input1" type="text" required="" name="title" placeholder="Title"> 
+                    <input class="error" id="input1" type="text" required="" name="title" placeholder="Title"> 
                         <label for="amount">Enter expense amount*</label>
-                        <input id="input2" required="" type="number" name="amount" placeholder="Amount"> 
+                        <input class="error" id="input2" required="" type="number" name="amount" placeholder="Amount"> 
                         <label for="date">Enter expense date (optional)</label>
                         <input id="input3" type="date" name="date"> 
-                        <button id="submit" type="button" placeholder="Amount" value="Submit">Submit</button>
+                        <input class="button" id="submit" type="submit" placeholder="Amount" value="Submit">
                     </form>
                     
                 </div>
@@ -161,7 +161,7 @@
                         </div>
                     </section>
                       <p  class="text-center">
-                        <button class="mt-5" id="print">Save & Print</button>
+                        <button class="button mt-5" id="print">Save & Print</button>
                       </p>
                 </div>
               
