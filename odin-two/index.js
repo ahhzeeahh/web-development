@@ -8,12 +8,7 @@ const amtOf = document.querySelector("#number");
 const titleOf = document.querySelector("#title");
 const formData = [];
 
-input[0].classList.remove("error");
-input[1].classList.remove("error");
-
-function pushArr(e) {
-
-    e.preventDefault()
+function pushArr() {
 
     for (var i = 0; i < input.length; i++) {
 
@@ -29,24 +24,22 @@ function pushArr(e) {
     };
 
     formData.push(dataEntered)
-
-    if (input[0] == "" || input[1] == "") {
-        console.log("its blank")
-    } else {
-        input[0].classList.toggle("error");
-        input[1].classList.toggle("error"); 
-    }
     input.forEach(input => {input.value = '' });
     
 }
 
 function validateForm(e) {
-   
+    console.log('i clicked')
     e.preventDefault()
-        if (input[0].value != "" || input[1].value != "") {
+        if (input[0].value == "" || input[1].value == "") {
             alert("Please fill out form")
-            input[0].classList.toggle("error");
-            input[1].classList.toggle("error");
+            input[0].classList.add("error");
+            input[1].classList.add("error");
+          
+        } else{
+            input[0].classList.remove("error");
+            input[1].classList.remove("error");
+            pushArr()
 
         }
        
@@ -54,7 +47,7 @@ function validateForm(e) {
 
 
 submit.addEventListener('click', validateForm)
-submit.addEventListener('submit', pushArr)
+//submit.addEventListener('submit', pushArr)
 
 
 
