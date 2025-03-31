@@ -1,5 +1,6 @@
 
 const submit = document.querySelector("#submit");
+const savePrint = document.querySelector("#print");
 const final = document.querySelector("#final");
 var input = document.querySelectorAll('input')
 let dataNode = document.querySelectorAll(".data");
@@ -8,7 +9,9 @@ const amtOf = document.querySelector("#number");
 const titleOf = document.querySelector("#title");
 const formData = [];
 
-function pushArr() {
+function pushArr(e) {
+
+      e.preventDefault()
 
     for (var i = 0; i < input.length; i++) {
 
@@ -28,32 +31,36 @@ function pushArr() {
     
 }
 
-function validateForm(e) {
-    console.log('i clicked')
-    e.preventDefault()
+function validateForm() {
+
         if (input[0].value == "" || input[1].value == "") {
-            alert("Please fill out form")
+            alert("Please fill out required form entries.")
             input[0].classList.add("error");
             input[1].classList.add("error");
           
         } else{
             input[0].classList.remove("error");
             input[1].classList.remove("error");
-            pushArr()
-
         }
        
 }
 
 
+
+
 submit.addEventListener('click', validateForm)
-//submit.addEventListener('submit', pushArr)
+document.querySelector("form").addEventListener('submit', function (e) {
 
+    e.preventDefault()
+    console.log(e)
+    
+})
 
+savePrint.addEventListener('click', function () {
 
-
-
-
+    window.print()
+    
+})
 
 /*
 
