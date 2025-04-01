@@ -12,6 +12,7 @@ const formData = [];
 function pushArr(e) {
 
       e.preventDefault()
+      console.log(formData)
 
     for (var i = 0; i < input.length; i++) {
 
@@ -49,12 +50,7 @@ function validateForm() {
 
 
 submit.addEventListener('click', validateForm)
-document.querySelector("form").addEventListener('submit', function (e) {
-
-    e.preventDefault()
-    console.log(e)
-    
-})
+document.querySelector("form").addEventListener('submit', pushArr)
 
 savePrint.addEventListener('click', function () {
 
