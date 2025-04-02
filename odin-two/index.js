@@ -1,4 +1,4 @@
-
+let tableEl = document.getElementById("output-data");
 let submit = document.getElementById("submit");
 const savePrint = document.getElementById("print");
 const final = document.getElementById("final");
@@ -6,6 +6,7 @@ var input = document.querySelectorAll('input')
 const dateOf = document.getElementById("date");
 const amtOf = document.getElementById("number");
 const titleOf = document.getElementById("title");
+
 const formData = [];
 
 function pushArr(e) {
@@ -19,13 +20,15 @@ function pushArr(e) {
     };
 
     formData.push(dataEntered)
+
+
+    titleOf.insertCell(input[0].value)
+    amtOf.insertCell(input[1].value)
+    dateOf.insertCell(input[2].value)
+
+
     input.forEach(input => {input.value = '' });
     console.log(formData)
-
-
-
-    
-    
 }
 
 function validateForm() {
@@ -43,6 +46,21 @@ function validateForm() {
         }
       
         return isValid
+}
+
+function addToTable() {
+
+    const dateOf = document.getElementById("date");
+    const amtOf = document.getElementById("number");
+    const titleOf = document.getElementById("title");
+    var deleteButton =  document.createElement('button');
+    deleteButton.textContent = "Delete?"
+
+
+    titleOf.insertCell(input[0])
+    amtOf.insertCell(input[1])
+    dateOf.insertCell(input[2])
+    
 }
 
 
