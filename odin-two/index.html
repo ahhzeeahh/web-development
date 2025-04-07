@@ -19,13 +19,11 @@
             display: flex ;
             justify-content: center;
              }
-       
-            li{
-              padding-bottom: 5px;
-              list-style: none;
-              color: #000;
-              text-align: left;
-            }
+             form{
+              display: grid;
+              gap: .5rem;
+
+              }
             h1{
               margin: 80px 0 40px 0;
               font-family: 'Press Start 2P', cursive;
@@ -34,19 +32,7 @@
               text-shadow: 5px 0 #232931;
               color: #753c44
             }
-            .table{
-              color: #fff;
-              display: inline-block;
-              text-align:center;
-              width: 175px;
-            }
-            ul{
-              padding: 15px ;
-            }
-            .data{
-              width: 175px;
-            
-            }
+        
             .error{
               border: red solid 2px;
             
@@ -63,11 +49,8 @@
               color: #313030;
               width: 41em;
             }
-            .data{
-              color: #000;
-            }
             
-            #submit {
+            .button {
               font-family: 'Press Start 2P', cursive;
               background-color: #000;
               font-weight: 600;
@@ -78,7 +61,8 @@
               text-transform: uppercase;
               letter-spacing: 2px;
             }
-            #submit:hover{
+
+            .button:hover{
             background-color: #444444;
             } 
             
@@ -87,66 +71,84 @@
               border: solid 1px #ccc;
             }
             
-            footer{
-              text-align: center;
-            
-            }
             @media (max-width: 600px) {
               
               h1{
                 font-size: 2rem;
               }
-            
-              form{
-                display: flex;
-                flex-direction: column;
+          
+            }
+            @media print{
+            #input-data{
+                  display: none;
+                }
+              h1{
+                font-size: 34px;
+              }
+              #output-data{
+                display: block !important;
+                background: #753c44;
+              }
+              #output-data h3{
+                font-size: 10px;
               }
             }
+
         </style>
     </head>
     <body data-new-gr-c-s-check-loaded="14.1226.0" data-gr-ext-installed="">
        <main class="container">
             <h1>Expense Tracker 2</h1>
            
-            <div class="row">
+            <div class="row align-items-start">
                  <div class="col-lg-4 p-5 bg-light rounded shadow" id="input-data">
-                    <p class="lead mt-3">My expenses calculator helps total $ spent on stuff! With direction from the Odin project, I'm pratciing with .js objects and form validiation. This does not save your information for later, do not refersh screen.</p>
-                    <h2>Input the data from the expense:</h2>
-                    <form>
-                    <input id="input1" type="text" required="" name="title" placeholder="Title"> 
-                        <input id="input2" required="" type="number" name="amount" placeholder="Amount"> 
-                        <input id="input3" type="date" name="date" placeholder="Date (optional)"> 
-                        <button id="submit" type="button" placeholder="Amount" value="Submit">Submit</button>
+                    <p class="lead mt-3">My expenses calculator helps total $ spent on stuff! <em>Do not refersh screen.</em></p>
+                    <h4>Input the expense:</h4>
+                    <form id="my-form">
+                      <label for="title">Enter expense title <span class="text-danger">*</span></label>
+                    <input class="" id="input1" type="text" required="" name="title" placeholder="Title"> 
+                        <label for="amount">Enter expense amount <span class="text-danger">*</span></label>
+                        <input class="" id="input2" required="" type="number" name="amount" placeholder="Amount"> 
+                        <label for="date">Enter expense date (optional)</label>
+                        <input id="input3" type="date" name="date"> 
+                        <button class="button" id="submit" type="submit" value="Submit">Submit</button>
                     </form>
                     
                 </div>
 
-                <div class="col">
-                    <section class="header mt-3">
-                        <div class="table">
-                            <h3>Title</h3>
-                        </div>
-                        <div class="table">
-                            <h3>Amount</h3>
-                        </div>
-                        <div class="table">
-                            <h3>Date<em> (optional)</em></h3>
-                        </div>
-                    </section>
-                    <section class="data-section">
-                        <div class="data">
-                            <ul id="title">
+                <div class="col" >
+                   
+                      <table id="output-data" class="table">
+                          <thead>
+                            <th>Title</th>
+                            <th>Amount</th>
+                            <th>Date<em> (optional)</em></th>
+                            <th>Delete?</th>
+                          </thead>
+                          <tbody class="data" >
+                            <tr id="title"></tr>
+                            <tr id="number"></tr>
+                            <tr id="date"></tr>
+                            <tr id="delBtn"></tr>
+                          </tbody>
+
+                        
+                      </table>
+                  </div>
+                <!--    <section class="data-section">
+                        <div class="">
+                            <ul  >
         
                             </ul>
                         </div>
-                        <div class="data">
-                            <ul id="number">
+                        <div class="">
+                            <ul  class="data" >
         
                             </ul> 
                             
                         </div>
-                        <div class="data">
-                            <ul id="date">
+                        <div class="">
+                            <ul  class="data">
         
                            </ul>
                         </div>
@@ -154,21 +156,30 @@
                     <section class="header">
             
                         <div class="table"> 
-                            <h3>Final Amount:</h3>
+                            <td>Final Amount:</td>
                         </div>
                         <div>  
                             <h3 id="final"></h3>
                         </div>
                     </section>
-                </div>
-                
+                    
+                    -->
+
+
+               
+                      
+                      <p  class="text-center">
+                        <button class="button mt-5" id="print">Save & Print</button>
+                      </p>
+              </div>
+              
 
        </main> 
     
     
         
      <footer class="mt-5">
-            <p>Back to <a href="https://azizaobryant.com">azizaobryant.com</a></p>
+            <p class="text-center">Back to <a href="https://azizaobryant.com">azizaobryant.com</a></p>
      </footer>
     
     <script src="index.js"></script>
