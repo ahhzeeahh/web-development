@@ -1,81 +1,81 @@
 let tableEl = document.getElementById("output-data");
-let submit = document.getElementById("submit");
+let formEl = document.getElementById("my-form");
+let submitBtn = document.getElementById("submit");
 const savePrint = document.getElementById("print");
 const final = document.getElementById("final");
-var input = document.querySelectorAll('input')
-const dateOf = document.getElementById("date");
-const amtOf = document.getElementById("number");
-const titleOf = document.getElementById("title");
-
+let rowEl = document.getElementById("body");
 const formData = [];
 
-function pushArr(e) {
-
-      e.preventDefault()
+function pushArr() {
 
     const dataEntered = { 
-        title: input[0].value, 
-        money: input[1].value, 
-        date: input[2].value
+        title: formEl[0].value, 
+        money: formEl[1].value, 
+        date: formEl[2].value,
+        del: "Delete"
+
     };
-
     formData.push(dataEntered)
-
-
-    titleOf.insertCell(input[0].value)
-    amtOf.insertCell(input[1].value)
-    dateOf.insertCell(input[2].value)
-
-
-    input.forEach(input => {input.value = '' });
-    console.log(formData)
+    
+  
 }
 
 function validateForm() {
-    var isValid = false
 
-        if (input[0].value == "" || input[1].value == "") {
+
+    //its better to use individual form ID's instead of input if you are gonna use array method
+        if (formEl[0].value == "" || formEl[1].value == "") {
             alert("Please fill out required form entries.")
-            input[0].classList.add("error");
-            input[1].classList.add("error");
+            formEl[0].classList.add("error");
+            formEl[1].classList.add("error");
+        
           
         } else{
-            input[0].classList.remove("error");
-            input[1].classList.remove("error");
-            isValid = true
+            formEl[0].classList.remove("error");
+            formEl[1].classList.remove("error");           
+            pushArr()           
         }
-      
-        return isValid
 }
 
-function addToTable() {
-
-    const dateOf = document.getElementById("date");
-    const amtOf = document.getElementById("number");
-    const titleOf = document.getElementById("title");
-    var deleteButton =  document.createElement('button');
-    deleteButton.textContent = "Delete?"
+function addToTable(e) {
 
 
-    titleOf.insertCell(input[0])
-    amtOf.insertCell(input[1])
-    dateOf.insertCell(input[2])
+   e.preventDefault()
+   console.log(formData)
+   document.querySelectorAll("#my-form input").forEach(input => {input.value = '' });
+}
+function changeListner() {
     
+
+formData.forEach((entry) =>
+console.log(entry[1].value)
+)
 }
 
+formEl.addEventListener('submit', addToTable)
+formData.addEventListener('change', changeListner)
+submitBtn.addEventListener('click', validateForm)
+savePrint.addEventListener('click', function () {window.print()})
+let allButtons = document.querySelectorAll("td > button")
+allButtons.forEach(btn => {
+    
+        btn.addEventListener("click", function () {
 
+            let thatBtnRow= btn.closest('tr')
+            let amtToDelete = thatBtnRow.children[1].textContent
+            let savedInt = Number(amtToDelete)
 
+            thatBtnRow.remove()
 
-submit.addEventListener('click', validateForm)
-document.getElementById("my-form").addEventListener('submit', pushArr)
+            })
 
-
+    });
 /*
-savePrint.addEventListener('click', function () {
 
-    window.print()
-    
-})
+
+notes: on change
+
+
 
 function getValues(titleOf, amtOf, dateOf) {
     
