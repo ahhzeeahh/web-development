@@ -1,194 +1,102 @@
-let tableEl = document.getElementById("output-data");
-let submit = document.getElementById("submit");
+
+const formEl = document.getElementById("my-form");
+const submitBtn = document.getElementById("submit");
 const savePrint = document.getElementById("print");
-const final = document.getElementById("final");
-var input = document.querySelectorAll('input')
-const dateOf = document.getElementById("date");
-const amtOf = document.getElementById("number");
-const titleOf = document.getElementById("title");
+let rowEl = document.getElementById("body");
+let finalNum = document.getElementById("final")
 
-const formData = [];
+let formData = [];
 
-function pushArr(e) {
+function validateForm() {
+    //its better to use individual form ID's instead of input if you are gonna use array method
+        if (formEl[0].value == "" || formEl[1].value == "") {
+            alert("Please fill out required form entries.")
+            formEl[0].classList.add("error");
+            formEl[1].classList.add("error");  
+        } else{
 
-      e.preventDefault()
+            formEl[0].classList.remove("error");
+            formEl[1].classList.remove("error");           
+        }
+      
+}
 
-    const dataEntered = { 
-        title: input[0].value, 
-        money: input[1].value, 
-        date: input[2].value
+function addToTable(e) {
+
+   e.preventDefault()
+
+   //create a arsonal of data, potential turn it into JSON for fun idkkkkk
+   const dataEntered = { 
+    title: formEl[0].value, 
+    money: formEl[1].value, 
+    date: formEl[2].value
     };
 
     formData.push(dataEntered)
 
+    //doing this to practice with table methods and get way from innerHTML its still pretty longwinded
+   let newRow = rowEl.insertRow(-1)
+   let cell1 = newRow.insertCell(0);    cell1.textContent = dataEntered.title
+   let cell2 = newRow.insertCell(1);    cell2.textContent = dataEntered.money
+   let cell3 = newRow.insertCell(2);    cell3.textContent = dataEntered.date
+   let cell4 = newRow.insertCell(3);    cell4.innerHTML = "<button>Delete?</button>";
 
-    titleOf.insertCell(input[0].value)
-    amtOf.insertCell(input[1].value)
-    dateOf.insertCell(input[2].value)
+
+    var savedInt = Number(dataEntered.money)
+
+    //this stuff needs to be updated after every entry
+   document.querySelectorAll("#my-form input").forEach(input => {input.value = '' });
+
+   doMath(savedInt)
 
 
-    input.forEach(input => {input.value = '' });
-    console.log(formData)
 }
 
-function validateForm() {
-    var isValid = false
+function doMath(savedInt) {
 
-        if (input[0].value == "" || input[1].value == "") {
-            alert("Please fill out required form entries.")
-            input[0].classList.add("error");
-            input[1].classList.add("error");
-          
-        } else{
-            input[0].classList.remove("error");
-            input[1].classList.remove("error");
-            isValid = true
-        }
-      
-        return isValid
-}
-
-function addToTable() {
-
-    const dateOf = document.getElementById("date");
-    const amtOf = document.getElementById("number");
-    const titleOf = document.getElementById("title");
-    var deleteButton =  document.createElement('button');
-    deleteButton.textContent = "Delete?"
-
-
-    titleOf.insertCell(input[0])
-    amtOf.insertCell(input[1])
-    dateOf.insertCell(input[2])
-    
-}
-
-
-
-
-submit.addEventListener('click', validateForm)
-document.getElementById("my-form").addEventListener('submit', pushArr)
-
-
-/*
-savePrint.addEventListener('click', function () {
-
-    window.print()
-    
-})
-
-function getValues(titleOf, amtOf, dateOf) {
-    
-}
-
-/*
-function validateForm() {
-
-
-
-    if (titleOf == "" || amtOf == "") {
-        alert("Please fill out form")
-        input[0].classList.add("error");
-        input[1].classList.add("error");
-    } else{
-        input[0].classList.remove("error");
-        input[1].classList.remove("error");
-    }
-    alert("youclicked")
-     titleOf = ""
-     amtOf = "" 
-     dateOf = ""
-}
-
-
-
-
-function test() {
-    
-     
-    var row = document.document.getElementByIdAll('ul')
-
-        if (input1 == "" || input2 == "" ) {
-            alert("Please fill out required fields!")
-            input[1].classList.add("error")
-            input[0].classList.add("error")
-        } else {
-            input[1].classList.remove("error")
-            input[0].classList.remove("error")
-        }
-        for (var i = 0; i < input.length; i++) {
-
-            var list =  document.createElement('li');
-               list.textContent = input[i].value
-               row[i].appendChild(list);        
-        }
-
-        amount +=  parseFloat(input[1].value)
-        input[1].value = amount;
-        final.textContent = "$" + amount;
-
-        
-        const newObject = { 
-            title: input[0].value, 
-            money: input[1].value, 
-            date: input[2].value,
-
-        };
-
-        formData.push(newObject)
-
-        input[0].value = "";
-        input[1].value = "";
-        input[2].value = "";
-}
-
-
-
-
-
-submit.addEventListener('click', function() { 
-
+//let allNumbers = document.querySelectorAll("#output-data tr td:nth-child(2)")
+console.log(savedInt + " is the number to be added/ delted bases on its positie or negitive status")
+console.log(Number(finalNum.textContent) + " + " + savedInt)
+   let newNum = Number(finalNum.textContent) + savedInt;
    
+   finalNum.textContent = newNum
+
+
     
-    var row = document.document.getElementByIdAll('ul')
+}
 
-        if (input1 == "" || input2 == "" ) {
-            alert("Please fill out required fields!")
-            input[1].classList.add("error")
-            input[0].classList.add("error")
-        } else {
-            input[1].classList.remove("error")
-            input[0].classList.remove("error")
-        }
-        for (var i = 0; i < input.length; i++) {
 
-            var list =  document.createElement('li');
-               list.textContent = input[i].value
-               row[i].appendChild(list);        
-        }
+submitBtn.addEventListener('click', validateForm)
+formEl.addEventListener('submit', addToTable)
+savePrint.addEventListener('click', function () {
+    window.print()
+    JSON.stringify(dataEntered)
 
-        amount +=  parseFloat(input[1].value)
-        input[1].value = amount;
-        final.textContent = "$" + amount;
-
-        
-        const newObject = { 
-            title: input[0].value, 
-            money: input[1].value, 
-            date: input[2].value,
-            test: function() {
-                console.dir(this)
-
-            }
-
-        };
-
-        formData.push(newObject)
-
-        input[0].value = "";
-        input[1].value = "";
-        input[2].value = "";
+})
+rowEl.addEventListener("click", function(e) {
+    if (e.target.matches("td > button")) {
+                let btn = e.target
+                let thatBtnRow= btn.closest('tr')
+                let amtToDelete = thatBtnRow.children[1].textContent
+                let savedInt = Number(amtToDelete) * -1
+                doMath(savedInt)
+                thatBtnRow.remove(btn)
+    }
 });
 
+/*
+function updateButtonListeners() {
+    //im unsure if below is the best way to get ALL the numbers dynamically each time theres a change in the DOM 
+    let allNumbers = document.querySelectorAll("#output-data tr td:nth-child(2)")
+    let allButtons = document.querySelectorAll("td > button")
+    allButtons.forEach(btn => {
+        
+            btn.addEventListener("click", function () {
+    
+    
+                })
+    
+        });
+    
+    }
 */
-  
