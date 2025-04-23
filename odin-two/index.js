@@ -7,9 +7,10 @@ let finalNum = document.getElementById("final")
 let formData = [];
 
 
-function masterFunction() {
-    return Math.random()
-    
+function masterFunction(e) {
+    e.preventDefault()
+    validateForm()
+    formEl.reset()
 }
 
 function validateForm() {
@@ -77,7 +78,7 @@ console.log(Number(finalNum.textContent) + " + " + savedInt)
 
 // THIS NEEDS WORK... MAYBE only 1 submit event... 
 
-submitBtn.addEventListener('click', validateForm)
+formEl.addEventListener('submit', masterFunction)
 //make a suunmit event that diviys up what to do from there aka call pther things
 //formEl.addEventListener('submit', addToTable)
 savePrint.addEventListener('click', function () {
