@@ -10,6 +10,7 @@ let formData = [];
 function masterFunction(e) {
     e.preventDefault()
     validateForm()
+    createObj()
     formEl.reset()
 }
 
@@ -36,17 +37,16 @@ function createObj() {
     money: formEl[1].value, 
     date: formEl[2].value
     };
-
+    addToTable()
     formData.push(dataEntered)
+    console.log(formData)
     
 }
 
-function addToTable(e) {
-
-   e.preventDefault()
+function addToTable() {
 
     //doing this to practice with table methods and get way from innerHTML its still pretty longwinded
-   let newRow = rowEl.insertRow(-1)
+   let newRow = rowEl.insertRow()
    let cell1 = newRow.insertCell(0);    
    let cell4 = newRow.insertCell(3);  
    let cell2 = newRow.insertCell(1);    
