@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="odin-two.css">
   <title>Odin Part 2</title>
   <style>
+    :root{
+    --bs-table-bg: #713e45 !important;;
+    }
      body{
     background-color: #efe8e8;
      }
@@ -19,6 +22,7 @@
       display: flex ;
       justify-content: center;
        }
+ 
        form{
         display: grid;
         gap: .5rem;
@@ -37,12 +41,12 @@
         border: red solid 2px;
       
       }
-      tfoot, thead{
-    
+      #output-data > thead >*>*,
+      #output-data > tfoot >*>* {
         background-color: #753c44 !important;
         color: #ffffff !important;
-        width: 100%;
-        padding:7px 15px;
+  
+        padding:12px 15px;
       }
       .top-row{ border:1px solid #b3adad;
           background: #ffffff;
@@ -124,7 +128,7 @@
           <div class="col">
       
             <table id="output-data" class="table">
-              <thead class="table-secondary">
+              <thead>
                   <tr>
                       <th>Title</th>
                       <th>Amount</th>
@@ -137,9 +141,12 @@
               
 
                    </tbody>
-              <tfoot class="table-secondary w-100">
+              <tfoot class="">
                 <tr>
                   <td>Final Amount: $<span id="final">0</span></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                 </tr>
               </tfoot>
           </table>
@@ -163,3 +170,4 @@
 
 
 </body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+

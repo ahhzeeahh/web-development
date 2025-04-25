@@ -1,194 +1,103 @@
-let tableEl = document.getElementById("output-data");
-let submit = document.getElementById("submit");
+
+const formEl = document.getElementById("my-form");
+const submitBtn = document.getElementById("submit");
 const savePrint = document.getElementById("print");
-const final = document.getElementById("final");
-var input = document.querySelectorAll('input')
-const dateOf = document.getElementById("date");
-const amtOf = document.getElementById("number");
-const titleOf = document.getElementById("title");
+let rowEl = document.getElementById("body");
+let finalNum = document.getElementById("final")
+let formData = [];
 
-const formData = [];
 
-function pushArr(e) {
+function masterFunction(e) {
+    e.preventDefault()
 
-      e.preventDefault()
+    //step 1
+    validateForm()
+    // step 2
+    createObj()
+    //step 3
+    addToTable()
+     
 
-    const dataEntered = { 
-        title: input[0].value, 
-        money: input[1].value, 
-        date: input[2].value
+    let savedInt = Number(formEl[1].value)
+    doMath(savedInt, finalNum)
+    formEl.reset()
+}
+
+function validateForm() {
+   //read MND dock to replace this checkValidity
+    if (formEl[0].value == "" || formEl[1].value == "") {
+            alert("Please fill out required form entries.")
+            formEl[0].classList.add("error");
+            formEl[1].classList.add("error");  
+        } else{
+
+            formEl[0].classList.remove("error");
+            formEl[1].classList.remove("error");           
+        }     
+      
+}
+function createObj() {
+
+   const dataEntered = { 
+    title: formEl[0].value, 
+    money: formEl[1].value, 
+    date: formEl[2].value
     };
 
     formData.push(dataEntered)
-
-
-    titleOf.insertCell(input[0].value)
-    amtOf.insertCell(input[1].value)
-    dateOf.insertCell(input[2].value)
-
-
-    input.forEach(input => {input.value = '' });
     console.log(formData)
-}
-
-function validateForm() {
-    var isValid = false
-
-        if (input[0].value == "" || input[1].value == "") {
-            alert("Please fill out required form entries.")
-            input[0].classList.add("error");
-            input[1].classList.add("error");
-          
-        } else{
-            input[0].classList.remove("error");
-            input[1].classList.remove("error");
-            isValid = true
-        }
-      
-        return isValid
+    
 }
 
 function addToTable() {
+   let indexArr = formData.length - 1
+   let newRow = rowEl.insertRow(-1)
+   let cell1 = newRow.insertCell(0);    
+   let cell2 = newRow.insertCell(1);    
+   let cell3 = newRow.insertCell(2);  
+   let cell4 = newRow.insertCell(3);  
+     
+   cell1.textContent = formData[indexArr].title
+   cell2.textContent = formData[indexArr].money
+   cell3.textContent = formData[indexArr].date
+   cell4.innerHTML = "<button>Delete?</button>";
 
-    const dateOf = document.getElementById("date");
-    const amtOf = document.getElementById("number");
-    const titleOf = document.getElementById("title");
-    var deleteButton =  document.createElement('button');
-    deleteButton.textContent = "Delete?"
 
+}
 
-    titleOf.insertCell(input[0])
-    amtOf.insertCell(input[1])
-    dateOf.insertCell(input[2])
+function doMath(savedInt, finalNum) {
+    
+   let newNum = Number(finalNum.textContent) + savedInt;  
+   finalNum.textContent = newNum
     
 }
 
-
-
-
-submit.addEventListener('click', validateForm)
-document.getElementById("my-form").addEventListener('submit', pushArr)
-
-
-/*
+ formEl.addEventListener('submit', masterFunction)
 savePrint.addEventListener('click', function () {
-
     window.print()
-    
+    JSON.stringify(dataEntered)
 })
 
-function getValues(titleOf, amtOf, dateOf) {
+
+
+rowEl.addEventListener("click", function(e) {
+
     
-}
+    if (e.target.matches("td > button")) {
+                let btn = e.target
+                let thatBtnRow = btn.closest('tr')
+                let i =  Number(thatBtnRow.rowIndex) - 1
+                let amtToDelete = thatBtnRow.children[1].textContent
+                let savedInt = Number(amtToDelete) * -1
 
-/*
-function validateForm() {
 
+                doMath(savedInt, finalNum)
+                formData.splice(i, 1)
+                thatBtnRow.remove(btn)
 
-
-    if (titleOf == "" || amtOf == "") {
-        alert("Please fill out form")
-        input[0].classList.add("error");
-        input[1].classList.add("error");
-    } else{
-        input[0].classList.remove("error");
-        input[1].classList.remove("error");
     }
-    alert("youclicked")
-     titleOf = ""
-     amtOf = "" 
-     dateOf = ""
-}
 
 
 
-
-function test() {
     
-     
-    var row = document.document.getElementByIdAll('ul')
-
-        if (input1 == "" || input2 == "" ) {
-            alert("Please fill out required fields!")
-            input[1].classList.add("error")
-            input[0].classList.add("error")
-        } else {
-            input[1].classList.remove("error")
-            input[0].classList.remove("error")
-        }
-        for (var i = 0; i < input.length; i++) {
-
-            var list =  document.createElement('li');
-               list.textContent = input[i].value
-               row[i].appendChild(list);        
-        }
-
-        amount +=  parseFloat(input[1].value)
-        input[1].value = amount;
-        final.textContent = "$" + amount;
-
-        
-        const newObject = { 
-            title: input[0].value, 
-            money: input[1].value, 
-            date: input[2].value,
-
-        };
-
-        formData.push(newObject)
-
-        input[0].value = "";
-        input[1].value = "";
-        input[2].value = "";
-}
-
-
-
-
-
-submit.addEventListener('click', function() { 
-
-   
-    
-    var row = document.document.getElementByIdAll('ul')
-
-        if (input1 == "" || input2 == "" ) {
-            alert("Please fill out required fields!")
-            input[1].classList.add("error")
-            input[0].classList.add("error")
-        } else {
-            input[1].classList.remove("error")
-            input[0].classList.remove("error")
-        }
-        for (var i = 0; i < input.length; i++) {
-
-            var list =  document.createElement('li');
-               list.textContent = input[i].value
-               row[i].appendChild(list);        
-        }
-
-        amount +=  parseFloat(input[1].value)
-        input[1].value = amount;
-        final.textContent = "$" + amount;
-
-        
-        const newObject = { 
-            title: input[0].value, 
-            money: input[1].value, 
-            date: input[2].value,
-            test: function() {
-                console.dir(this)
-
-            }
-
-        };
-
-        formData.push(newObject)
-
-        input[0].value = "";
-        input[1].value = "";
-        input[2].value = "";
 });
-
-*/
-  
