@@ -1,10 +1,10 @@
-let imageListener = document.getElementById(txgioImgGall);
+let imageListener = document.getElementById("txgioImgGall");
 
 
-rowEl.addEventListener("click", function(e) {
+imageListener.addEventListener("click", function(e) {
 
     
-    if (e.target.matches("td > button")) {
+    if (e.target.matches(" > button")) {
                 let btn = e.target
                 let thatBtnRow = btn.closest('tr')
                 let i =  Number(thatBtnRow.rowIndex) - 1
