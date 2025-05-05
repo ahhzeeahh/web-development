@@ -21,73 +21,70 @@
          background-color: #efe8e8;
          }
          .intro{
-         display: flex;
-         justify-content: center;
-         flex-direction: column;
+   
          width: 70%;
          text-align: center;
          }
          .grid{
          display: grid;
          gap: 20px;
-         grid-template-columns: repeat(autofit, repeat(4, 1fr))
+		 grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		
          }
          .gall-image {
-         background-color: #753c44;
-         height: 100px;
-         width: 100%;
-         border: solid 2px;
+      
+		 overflow: hidden;
          }
          .gall-image img{
-         object-fit: cover;
-         background-size: cover;
-         background-position: center;
+            width: 100%;
+			height: 240px;
+			object-fit: cover;
+			background-size: contain;
+			background-position: center;
          }
       </style>
    </head>
    <body>
-      <div class="intro ">
+      <div class="intro container-md">
          <h1 class="display-2">Practice with Grid</h1>
          <p class="lead ">In my pursuit of mastering modern web development techniques, I'm currently focused on hands-on practice with CSS layout tools, specifically flexbox and grid, to create responsive and dynamic user interfaces. Simultaneously, I'm strengthening my JavaScript skills, exploring DOM manipulation and interactive functionality, aiming to seamlessly integrate these elements for a truly engaging web experience
          </p>
       </div>
-      <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/14/H.M.Brock_-_Poster_for_Gilbert_and_Sullivan%27s_The_Sorcerer_%281919%29.jpg/250px-H.M.Brock_-_Poster_for_Gilbert_and_Sullivan%27s_The_Sorcerer_%281919%29.jpg">
-      </div>
+ 
       <div id="txgioImgGall" class="mt-5 container-md txgio-img-gallery">
          <div class="grid">
-            <div class="txgio-img-gallery-${counter} gall-image">
-               <!--   
+            <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="txgio-img-gallery-${counter} gall-image">
+               
                   <img alt="error.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/error.jpg">
-                  		  -->
+                  		
             </div>
             <div class="txgio-img-gallery-${counter} gall-image">
-               <!--    	<img alt="ifhkfh.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/ifhkfh.jpg">
-                  -->
+                 	<img alt="ifhkfh.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/ifhkfh.jpg">
+                   
             </div>
             <div class="txgio-img-gallery-${counter} gall-image">
-               <!-- 	<img alt="txgio-name-changed.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/txgio-name-changed.jpg">
-                  -->
+                 	<img alt="txgio-name-changed.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/txgio-name-changed.jpg">
+                   
             </div>
             <div class="txgio-img-gallery-${counter} gall-image">
-               <!-- 		<img alt="darktheme.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/darktheme.jpg">
-                  -->
+                 		<img alt="darktheme.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/darktheme.jpg">
+                   
             </div>
             <div class="txgio-img-gallery-${counter} gall-image">
-               <!--  				<img alt="how-to-shoot-black-and-white.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/how-to-shoot-black-and-white.jpg">
-                  -->	
+               				<img alt="how-to-shoot-black-and-white.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/how-to-shoot-black-and-white.jpg">
+                   	
             </div>
             <div class="txgio-img-gallery-${counter} gall-image">
-               <!--    			<img alt="bg-gradient.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/bg-gradient.jpg">
-                  -->				
+                 			<img alt="bg-gradient.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/bg-gradient.jpg">
+                   				
             </div>
 			<div class="txgio-img-gallery-${counter} gall-image">
-			<!--    			<img alt="bg-gradient.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/bg-gradient.jpg">
-			-->				
+			  			<img alt="bg-gradient.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/bg-gradient.jpg">
+			 				
 			</div>
 				<div class="txgio-img-gallery-${counter} gall-image">
-			<!--    			<img alt="bg-gradient.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/bg-gradient.jpg">
-			-->				
+			  			<img alt="bg-gradient.jpg" class="rounded img img-fluid mx-auto" src="https://test.txgio.org/_images/bg-gradient.jpg">
+			 				
 			</div>
          </div>
       
@@ -99,7 +96,7 @@
          <div class="modal-dialog">
             <div class="modal-content">
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/14/H.M.Brock_-_Poster_for_Gilbert_and_Sullivan%27s_The_Sorcerer_%281919%29.jpg/250px-H.M.Brock_-_Poster_for_Gilbert_and_Sullivan%27s_The_Sorcerer_%281919%29.jpg">
+               <img id="imgGallModalView" src="https://upload.wikimedia.org/wikipedia/en/thumb/1/14/H.M.Brock_-_Poster_for_Gilbert_and_Sullivan%27s_The_Sorcerer_%281919%29.jpg/250px-H.M.Brock_-_Poster_for_Gilbert_and_Sullivan%27s_The_Sorcerer_%281919%29.jpg">
                <div class="modal-footer">
                   <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
                   </button>

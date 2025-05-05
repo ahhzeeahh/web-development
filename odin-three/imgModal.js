@@ -1,24 +1,18 @@
 let imageListener = document.getElementById("txgioImgGall");
-
+let imgModalView = document.getElementById("imgGallModalView");
+// type="button" data-bs-toggle="modal" data-bs-target="#txgioImgGallModal" THIS IS IMPORTAN TTO PUT OVER EVER DIV WITH IMG
+//let imageListener = document.getElementById("txgioImgGall");
 
 imageListener.addEventListener("click", function(e) {
-
     
-    if (e.target.matches(" > button")) {
-                let btn = e.target
-                let thatBtnRow = btn.closest('tr')
-                let i =  Number(thatBtnRow.rowIndex) - 1
-                let amtToDelete = thatBtnRow.children[1].textContent
-                let savedInt = Number(amtToDelete) * -1
-
-
-                doMath(savedInt, finalNum)
-                formData.splice(i, 1)
-                thatBtnRow.remove(btn)
-
+    if (e.target.matches("img.img")) {
+                let img = e.target
+                imgModalView.setAttribute("src", img.src)
+                let nextImgSrc = img.closest('img.img')
+                // either make a index that counts so you can do +1 or -1 to get next or fron a nother .furthest .js method
+                console.log(nextImgSrc)
+    
     }
-
-
 
     
 });
