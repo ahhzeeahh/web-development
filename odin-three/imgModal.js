@@ -8,61 +8,43 @@ let beforeButtonImg = document.getElementById("show-previous-image");
 let imgModalView = document.getElementById("imgGallModalView");
 let txgioImageGallery = document.querySelectorAll("#txgioImgGall img");
 
-nextButtonImg.addEventListener("click", nextImage)
-beforeButtonImg.addEventListener("click", beforeImage)
+nextButtonImg.addEventListener("click", clickerBtns)
+beforeButtonImg.addEventListener("click", clickerBtns)
 imageListener.addEventListener("click", function(e) {
 
-        validationButtons()
-        
-
-    if (e.target.matches("img.modal-img")) {
+    if (e.target.matches("img.rounded")) {
+      
                 let img = e.target
-                console.log(img)
+                currImgCounter = parseInt(img.getAttribute("data-bs-img-num")) - 1
                 imgModalView.setAttribute("src", img.src)
-                let currImgSrc = img.closest('img')
-                currImgCounter = parseInt(currImgSrc.getAttribute("data-bs-img-num"))
-        
                 return currImgCounter
     }    
+   
 });
 
-function validationButtons() {
-   console.log(currImgCounter)
-    if (currImgCounter = 1) {
-        beforeButtonImg.style.display = "block"
-    }else{
-         beforeButtonImg.style.display = "none"
-    }
-    if (txgioImageGallery.length = currImgCounter) {
-        nextButtonImg.style.display = "block"
-    } else {
-        nextButtonImg.style.display = "none"
-    }
+function clickerBtns(e){
+    let x = e.target
+    let test = x.closest('button')
 
+    if (test.matches("#show-next-image")) {
+       
+        currImgCounter++
+        if(currImgCounter == txgioImageGallery.length - 1){
+            currImgCounter = 0
+            console.log(currImgCounter)
+            }
+    }else if (test.matches("#show-previous-image")) {
+        console.log(currImgCounter)
+        currImgCounter--
+        if(currImgCounter == -1){
+        currImgCounter = txgioImageGallery.length - 1
     
-}
+        }
 
-function beforeImage(e) {
+    }
 
-    validationButtons()
- 
-    let doMath = currImgCounter
-    let newBeforeImg =  txgioImageGallery[doMath]
-    imgModalView.setAttribute("src", newBeforeImg.src)
-    currImgCounter = doMath
-    return currImgCounter
-
-}
-
-
-
-function nextImage(e) {
-    validationButtons()
-
-    let doMath = currImgCounter
-    let newNextImg = txgioImageGallery[doMath]
+    let newNextImg = txgioImageGallery[currImgCounter]
     imgModalView.setAttribute("src", newNextImg.src)
-   currImgCounter = doMath
-   return currImgCounter
+    
 
 }
